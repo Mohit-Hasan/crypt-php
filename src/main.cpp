@@ -143,10 +143,6 @@ void SetupModernStyle() {
   c[ImGuiCol_TextDisabled] = {0.50f, 0.55f, 0.60f, 1.f};
 }
 
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 // helpers
 static void OpenURL(const char *url) {
 #ifdef __APPLE__
