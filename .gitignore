@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+bin/
+dist/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.dll
+
+# Dependencies (cloned by setup_resources.sh)
+yakpro-po/
+PHP-Parser/
+
+# Local/User specific
+CryptPHP.cnf
+imgui.ini
+.DS_Store
