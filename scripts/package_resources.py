@@ -31,6 +31,7 @@ def package_directory(src_dir, header_file):
         f.write("\nstatic const EmbeddedFile g_EmbeddedFiles[] = {\n")
         for i, (rel_path, abs_path) in enumerate(files):
             size = os.path.getsize(abs_path)
+            rel_path = rel_path.replace("\\", "/")
             f.write(f'    {{ "{rel_path}", {size}, g_FileData_{i} }},\n')
         f.write("};\n\n")
         f.write(f"static const size_t g_EmbeddedFilesCount = {len(files)};\n")

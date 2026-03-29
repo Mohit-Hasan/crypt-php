@@ -143,12 +143,6 @@ void SetupModernStyle() {
   c[ImGuiCol_TextDisabled] = {0.50f, 0.55f, 0.60f, 1.f};
 }
 
-#ifdef _WIN32
-#define NOMINMAX
-#include <shellapi.h>
-#include <windows.h>
-#endif
-
 // helpers
 static void OpenURL(const char *url) {
 #ifdef __APPLE__
@@ -157,7 +151,10 @@ static void OpenURL(const char *url) {
   cmd += "\"";
   system(cmd.c_str());
 #elif defined(_WIN32)
-  ShellExecuteA(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL);
+  string cmd = "start \"\" \"";
+  cmd += url;
+  cmd += "\"";
+  system(cmd.c_str());
 #else
   string cmd = "xdg-open \"";
   cmd += url;
@@ -863,7 +860,7 @@ int main(int, char **) {
         ImGui::Text("CryptPHP - Obfuscator for php");
         ImGui::PopStyleColor();
         ImGui::PopFont();
-        ImGui::TextDisabled("v%s | Professional PHP Protection Suite",
+        ImGui::TextDisabled("%s | Professional PHP Protection Suite",
                             BRAND_VERSION);
         ImGui::Separator();
         ImGui::Spacing();

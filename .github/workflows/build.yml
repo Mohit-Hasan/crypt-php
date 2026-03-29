@@ -9,6 +9,8 @@ on:
 
 jobs:
   build:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -17,12 +19,12 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-name: '3.x'
+        python-version: '3.x'
 
     - name: Install Linux Dependencies
       if: matrix.os == 'ubuntu-latest'
@@ -49,21 +51,21 @@ jobs:
 
     - name: Upload Artifact (Windows)
       if: matrix.os == 'windows-latest'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: CryptPHP-Windows
         path: build/Release/CryptPHP.exe
 
     - name: Upload Artifact (macOS)
       if: matrix.os == 'macos-latest'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: CryptPHP-macOS
         path: build/CryptPHP
 
     - name: Upload Artifact (Linux)
       if: matrix.os == 'ubuntu-latest'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: CryptPHP-Linux
         path: build/CryptPHP
