@@ -2,6 +2,8 @@
 
 **CryptPHP** is a high-performance, cross-platform PHP obfuscator and encoder designed to secure your source code. It combines granular file selection with multi-layer protection to safeguard your intellectual property.
 
+![tab-1](https://raw.githubusercontent.com/Mohit-Hasan/crypt-php/refs/heads/main/assets/tab-1.png)
+
 ---
 
 ## Key Features
@@ -45,6 +47,8 @@ make -j$(sysctl -n hw.ncpu)
 3.  **Encode**: Use the **Layer-2** tab for additional encoding on sensitive files.
 4.  **Package**: Configure your **Seed Folder** and click **Build & Orchestrate**.
 5.  **Deploy**: Find your protected ZIP files in the `dist/` directory.
+
+![tab-2](https://raw.githubusercontent.com/Mohit-Hasan/crypt-php/refs/heads/main/assets/tab-2.png)
 
 ---
 
