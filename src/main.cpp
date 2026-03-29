@@ -144,8 +144,6 @@ void SetupModernStyle() {
 }
 
 #ifdef _WIN32
-#define NOMINMAX
-#include <shellapi.h>
 #include <windows.h>
 #endif
 
@@ -157,7 +155,10 @@ static void OpenURL(const char *url) {
   cmd += "\"";
   system(cmd.c_str());
 #elif defined(_WIN32)
-  ShellExecuteA(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL);
+  string cmd = "start \"\" \"";
+  cmd += url;
+  cmd += "\"";
+  system(cmd.c_str());
 #else
   string cmd = "xdg-open \"";
   cmd += url;
