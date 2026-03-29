@@ -9,6 +9,8 @@ on:
 
 jobs:
   build:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
