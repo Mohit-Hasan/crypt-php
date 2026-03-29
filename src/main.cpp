@@ -863,7 +863,7 @@ int main(int, char **) {
         ImGui::Text("CryptPHP - Obfuscator for php");
         ImGui::PopStyleColor();
         ImGui::PopFont();
-        ImGui::TextDisabled("v%s | Professional PHP Protection Suite",
+        ImGui::TextDisabled("%s | Professional PHP Protection Suite",
                             BRAND_VERSION);
         ImGui::Separator();
         ImGui::Spacing();

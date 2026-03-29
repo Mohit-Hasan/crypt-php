@@ -1,10 +1,16 @@
 #include "FileUtil.h"
 #include <array>
+#include <cstdio>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
+
+#ifdef _WIN32
+#define popen _popen
+#define pclose _pclose
+#endif
 using namespace std;
 namespace fs = std::filesystem;
 
